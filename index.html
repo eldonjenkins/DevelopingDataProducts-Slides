@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Developing Data Products</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Developing Data Products">
+  <meta name="author" content="Eldon Jenkins">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Developing Data Products</h1>
+    <h2>Course Project</h2>
+    <p>Eldon Jenkins<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Birth Weight and Health</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Birth weight can be an important indicator of child health</li>
+<li>Several factors can contribute to a child&#39;s birth weight</li>
+<li>Wouldn&#39;t it be nice if you had a great model with an easy front end to help you understand the contributing factors and let you see how they impact predicted birth weight?</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Super Birth Weight Predictor 1000</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Using the babies dataset from the UsingR package we have created just the model and interface you&#39;ve been looking for!</p>
+
+<p>After countless hours of research we have developed this advanced model for predicting birth weight.
+We have identified 6 important factors that impact birth weight: </p>
+
+<ul>
+<li>Mother&#39;s Height</li>
+<li>Gestation Period</li>
+<li>Mother&#39;s Race</li>
+<li>Mother&#39;s Education</li>
+<li>Marital Status</li>
+<li>If the Mother Smokes</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>New model</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Using these we have built the following model: </p>
+
+<pre><code class="r">library(UsingR)
+data(babies)
+fit &lt;- lm(wt ~ ht + gestation + race + ed + marital + smoke, babies)
+summary(fit)$coef
+</code></pre>
+
+<pre><code>##             Estimate Std. Error t value  Pr(&gt;|t|)
+## (Intercept) 93.22155   6.814508 13.6799 9.319e-40
+## ht           0.39027   0.097999  3.9824 7.223e-05
+## gestation    0.01262   0.006832  1.8466 6.504e-02
+## race        -0.42747   0.123328 -3.4662 5.462e-04
+## ed           0.31397   0.349735  0.8977 3.695e-01
+## marital     -1.93629   1.575036 -1.2294 2.192e-01
+## smoke       -0.04596   0.441344 -0.1041 9.171e-01
+</code></pre>
+
+<p>Wouldn&#39;t it be nicer if there were a web based front end that would let you tinker with different scenarios to see how the model reacts without needing a stats background?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Super Birth Weight Predictor 1000 - Web Interface</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Now you can create your own scenarios without having to understand the model background!
+You fill out the criteria: </p>
+
+<div style='text-align: center;'>
+    <img height='320' src='criteria.png' />
+</div>
+
+<p>The application gives you an answer!</p>
+
+<div style='text-align: center;'>
+    <img height='60' src='results.png' />
+</div>
+
+<p><a href="https://eldonjenkins.shinyapps.io/DevelopingDataProducts/">https://eldonjenkins.shinyapps.io/DevelopingDataProducts/</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Birth Weight and Health'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Super Birth Weight Predictor 1000'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='New model'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Super Birth Weight Predictor 1000 - Web Interface'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
